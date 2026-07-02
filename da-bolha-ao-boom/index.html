@@ -411,8 +411,7 @@ h2.sec-title .hl{color:var(--amber-strong)}
 .why-punch strong{color:var(--amber-strong)}
 
 /* ───────── DOBRA 8 — Para quem é ───────── */
-/* Grid levemente assimétrico: o card "para quem é" pesa mais que o "não é" — reforça foco editorial, sem virar template 50/50 */
-.for-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md)}
+.for-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md)}
 .for-card{background:var(--bg-elev);padding:38px 40px;transition:background .2s var(--ease-out);display:flex;flex-direction:column;justify-content:center}
 .for-card.yes{background:var(--bg-elev-2)}
 .for-card:hover{background:var(--bg-elev-3)}
@@ -472,9 +471,6 @@ h2.sec-title .hl{color:var(--amber-strong)}
   background:linear-gradient(120deg, var(--swing) 0%, #1f8378 100%);
 }
 .transform-list li:nth-child(even):hover{box-shadow:0 14px 30px -12px rgba(47,180,163,.55)}
-/* leve assimetria editorial: a barra central (3ª, o ponto-chave da lista) respira mais e puxa a margem */
-.transform-list li:nth-child(3){padding:26px 28px;margin-left:18px;max-width:calc(100% - 18px)}
-@media(max-width:640px){.transform-list li:nth-child(3){margin-left:0;max-width:100%}}
 .transform-list .ico{
   flex-shrink:0;width:28px;height:28px;border-radius:50%;
   background:rgba(0,0,0,.22);
