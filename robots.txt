@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+Allow: /da-bolha-ao-boom/
+
+Sitemap: https://wesleyhenriques.site/da-bolha-ao-boom/sitemap.xml

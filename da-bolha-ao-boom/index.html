@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Da Bolha ao Boom — O Padrão Remake de Wesley Henriques</title>
+<meta name="description" content="O critério de três camadas por trás do único caso de viralização espontânea genuína que Wesley Henriques já viveu. Mini-curso por R$ 47,00.">
+<link rel="canonical" href="https://wesleyhenriques.site/da-bolha-ao-boom/">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Da Bolha ao Boom — O Padrão Remake de Wesley Henriques">
+<meta property="og:description" content="O critério de três camadas por trás do único caso de viralização espontânea genuína que Wesley Henriques já viveu. Mini-curso por R$ 47,00.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wesleyhenriques.site/da-bolha-ao-boom/">
+<meta property="og:image" content="https://wesleyhenriques.site/da-bolha-ao-boom/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Da Bolha ao Boom — O Padrão Remake de Wesley Henriques">
+<meta name="twitter:description" content="O critério de três camadas por trás do único caso de viralização espontânea genuína que Wesley Henriques já viveu. Mini-curso por R$ 47,00.">
+<meta name="twitter:image" content="https://wesleyhenriques.site/da-bolha-ao-boom/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='512' height='512' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='512' height='512' rx='128' ry='128' fill='%23ff8a1f' /%3E%3Ctext x='50%25' y='53%25' dominant-baseline='middle' text-anchor='middle' fill='%23100c08' font-family='system-ui, -apple-system, sans-serif' font-weight='bold' font-size='280'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+/* ============================================
+   DA BOLHA AO BOOM — Página de Vendas
+   Sistema visual herdado do BrandBook do produto:
+   colisão cultural / flyer de mixtape / âmbar quente
+   ============================================ */
+
+:root{
+  --bg:            #100c08;
+  --bg-elev:       #17110a;
+  --bg-elev-2:     #1f1710;
+  --bg-elev-3:     #2a1f14;
+  --fg:            #f5ede1;
+  --fg-muted:      #b9a894;
+  --fg-faint:      #7a6c5a;
+  --amber:         #ff8a1f;
+  --amber-strong:  #ffb347;
+  --amber-deep:    #d9600a;
+  --amber-soft:    rgba(255,138,31,.12);
+  --amber-edge:    rgba(255,138,31,.38);
+  --amber-glow:    rgba(255,138,31,.10);
+  --amber-glow-strong: rgba(255,138,31,.30);
+  --forro:         #e0483c;
+  --forro-soft:    rgba(224,72,60,.12);
+  --forro-edge:    rgba(224,72,60,.4);
+  --swing:         #2fb4a3;
+  --swing-soft:    rgba(47,180,163,.12);
+  --swing-edge:    rgba(47,180,163,.4);
+  --danger:        #ff5566;
+  --danger-soft:   rgba(255,85,102,.12);
+  --border:        #332619;
+  --border-strong: #4a3823;
+
+  --font-display: "Anton", "Arial Black", "Helvetica Neue", sans-serif;
+  --font-body: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+}
+
+@font-face{font-family:"Anton";src:local("Anton");font-display:swap;}
+@font-face{font-family:"Archivo";src:local("Archivo");font-display:swap;}
+@font-face{font-family:"JetBrains Mono";src:local("JetBrains Mono");font-display:swap;}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:#100c08}
+.mono{font-family:var(--font-mono)}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;text-wrap:balance;margin:0}
+p{margin:0}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 48px}
+@media(max-width:720px){.wrap{padding:0 22px}}
+.wrap-narrow{max-width:820px;margin:0 auto;padding:0 48px}
+@media(max-width:720px){.wrap-narrow{padding:0 22px}}
+
+section{position:relative;padding:110px 0;border-bottom:1px solid var(--border);background:var(--bg)}
+@media(max-width:720px){section{padding:64px 0}}
+/* Ritmo de elevação — alterna o fundo entre seções adjacentes para criar profundidade,
+   em vez de repetir o mesmo tom em toda a página. */
+.sec-elev-1{background:var(--bg-elev)}
+.sec-elev-2{background:var(--bg-elev-2)}
+.sec-elev-3{background:linear-gradient(180deg, var(--bg-elev-3) 0%, var(--bg-elev) 100%)}
+
+/* ───────── Sistema de sombra coerente (âmbar/preto, nunca cinza neutro) ───────── */
+:root{
+  --shadow-sm:  0 2px 10px -4px rgba(8,5,2,.55);
+  --shadow-md:  0 14px 34px -14px rgba(8,5,2,.7), 0 2px 10px -4px rgba(255,138,31,.08);
+  --shadow-lg:  0 30px 60px -20px rgba(8,5,2,.75), 0 6px 20px -8px rgba(255,138,31,.10);
+  --shadow-amber-sm: 0 10px 26px -12px rgba(255,138,31,.45);
+  --shadow-amber-md: 0 18px 40px -14px rgba(255,138,31,.55);
+  --ease-out: cubic-bezier(.16,.8,.3,1);
+}
+
+.kicker{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--amber);
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:18px;
+}
+.kicker::before{content:"";width:22px;height:2px;background:var(--amber)}
+.kicker.center{justify-content:center}
+.kicker.center::before{display:none}
+
+h2.sec-title{font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin-bottom:14px}
+h2.sec-title .hl{color:var(--amber-strong)}
+
+/* ───────── Texturas de fundo ───────── */
+.texture-collide{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 8% 0%, rgba(255,138,31,.16), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 100% 100%, rgba(47,180,163,.08), transparent 55%);
+  pointer-events:none;z-index:0;
+}
+.texture-diagonal{
+  position:absolute;inset:0;
+  background-image: repeating-linear-gradient(48deg, rgba(255,138,31,.05) 0 2px, transparent 2px 34px);
+  pointer-events:none;z-index:0;
+  mask-image: radial-gradient(ellipse at 30% 20%, black, transparent 70%);
+}
+.texture-forro-swing{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 45% 40% at 0% 20%, rgba(224,72,60,.10), transparent 60%),
+    radial-gradient(ellipse 45% 40% at 100% 80%, rgba(47,180,163,.10), transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+/* ───────── Topbar ───────── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(16,12,8,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-in{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--fg-faint);
+  letter-spacing:.6px;
+}
+.topbar .brand{display:flex;align-items:center;gap:12px;color:var(--fg)}
+.topbar .brand-mark{
+  width:26px;height:26px;
+  background:var(--amber);
+  color:#100c08;
+  font-family:var(--font-display);
+  font-weight:400;font-size:14px;
+  border-radius:7px;
+  display:grid;place-items:center;
+  transform:rotate(-4deg);
+}
+.topbar-cta{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:1px;
+  color:var(--amber-strong);border:1px solid var(--amber-edge);
+  padding:9px 16px;border-radius:100px;text-decoration:none;
+  white-space:nowrap;
+  transition:background .18s var(--ease-out), color .18s var(--ease-out), box-shadow .18s var(--ease-out);
+}
+.topbar-cta:hover{background:var(--amber-soft);box-shadow:0 4px 16px -6px rgba(255,138,31,.4)}
+.topbar-cta:focus-visible{outline:2px solid var(--amber-strong);outline-offset:2px}
+@media(max-width:560px){.topbar .brand span{display:none}}
+
+/* ───────── HERO / DOBRA 1 ───────── */
+.hero{padding:88px 0 100px;overflow:hidden}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+@media(max-width:960px){.hero-in{grid-template-columns:1fr;gap:44px}}
+
+.hero-stamp{
+  display:inline-flex;align-items:center;gap:14px;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:2px;
+  color:var(--fg-faint);text-transform:uppercase;margin-bottom:30px;
+}
+.hero-stamp .led{width:7px;height:7px;background:var(--amber);border-radius:50%;box-shadow:0 0 12px var(--amber);flex-shrink:0}
+
+.wordmark{
+  font-size:clamp(30px,4.6vw,50px);
+  line-height:1.08;
+  letter-spacing:-.5px;
+  margin-bottom:26px;
+}
+.wordmark .hl{color:var(--amber-strong)}
+
+.hero-sub{
+  font-size:clamp(16.5px,1.6vw,19px);
+  color:var(--fg-muted);
+  max-width:620px;
+  line-height:1.6;
+  margin-bottom:38px;
+}
+.hero-sub strong{color:var(--fg)}
+
+.cta-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--font-display);font-size:17px;letter-spacing:.3px;
+  color:#100c08;background:var(--amber);
+  padding:20px 30px;border-radius:10px;
+  text-decoration:none;border:none;cursor:pointer;
+  box-shadow:var(--shadow-amber-sm);
+  transition:transform .18s var(--ease-out), box-shadow .18s var(--ease-out), filter .18s var(--ease-out);
+}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:var(--shadow-amber-md);filter:brightness(1.06)}
+.cta-btn:active{transform:translateY(-1px)}
+.cta-btn:focus-visible{outline:2px solid var(--amber-strong);outline-offset:3px}
+.cta-btn .arrow{font-size:19px;transition:transform .18s var(--ease-out)}
+.cta-btn:hover .arrow{transform:translateX(3px)}
+.cta-btn.block{width:100%;justify-content:center}
+.cta-sub{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.5px;color:var(--fg-faint);
+  margin-top:14px;
+}
+
+.hero-photo-col{position:relative}
+.hero-photo-col::before{
+  content:"";position:absolute;
+  left:50%;top:8%;width:120%;height:100%;transform:translateX(-50%);
+  background:radial-gradient(ellipse 55% 55% at 50% 40%, var(--amber-glow-strong), transparent 68%);
+  pointer-events:none;z-index:0;filter:blur(4px);
+}
+.hero-photo-frame{
+  position:relative;z-index:1;
+  border-radius:20px;overflow:hidden;
+  border:1px solid var(--amber-edge);
+  aspect-ratio:1/1;
+  max-width:420px;margin:0 auto;
+  box-shadow:var(--shadow-lg);
+  transform:rotate(-1.4deg);
+  transition:transform .3s var(--ease-out);
+}
+.hero-photo-frame:hover{transform:rotate(0deg) scale(1.012)}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover}
+.hero-photo-frame::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 55%, rgba(16,12,8,.85) 100%);
+}
+.hero-photo-tag{
+  position:absolute;left:20px;bottom:18px;z-index:2;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;
+  color:var(--fg);text-transform:uppercase;
+}
+.hero-photo-tag .name{display:block;font-family:var(--font-display);font-size:22px;color:var(--amber-strong);letter-spacing:0;margin-bottom:2px}
+.hero-badge{
+  position:absolute;top:-16px;right:-16px;z-index:3;
+  width:96px;height:96px;border-radius:50%;
+  background:var(--bg-elev-3);border:1px solid var(--amber-edge);
+  display:grid;place-items:center;text-align:center;
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:1px;color:var(--amber-strong);
+  line-height:1.35;padding:8px;
+  transform:rotate(8deg);
+  box-shadow:var(--shadow-md);
+  transition:transform .3s var(--ease-out);
+}
+.hero-badge:hover{transform:rotate(0deg) scale(1.04)}
+@media(max-width:560px){.hero-badge{width:78px;height:78px;font-size:8.5px;top:-10px;right:-10px}}
+
+/* ───────── DOBRA 2 / 3 — Dor e diagnóstico ───────── */
+.pain-lead{
+  font-size:clamp(19px,2.4vw,25px);
+  color:var(--fg);
+  max-width:820px;
+  line-height:1.6;
+  font-weight:600;
+}
+.pain-lead .hl{color:var(--amber-strong)}
+
+.diag-block{
+  margin-top:52px;
+  background:var(--bg-elev-2);
+  border:1px solid var(--border);
+  border-left:3px solid var(--forro);
+  border-radius:4px;
+  padding:40px 44px;
+  box-shadow:var(--shadow-sm);
+}
+.diag-block p{font-size:17px;color:var(--fg-muted);line-height:1.75;margin-bottom:18px}
+.diag-block p:last-child{margin-bottom:0}
+.diag-block p strong{color:var(--fg)}
+
+.surface-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.surface-tag{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.4px;
+  padding:8px 16px;border-radius:100px;
+  color:var(--fg-faint);background:var(--bg-elev);
+  border:1px solid var(--border-strong);
+  text-decoration:line-through;text-decoration-color:var(--danger);
+}
+
+/* ───────── DOBRA 4 — Mecanismo (visão geral) ───────── */
+.mech-name-block{
+  text-align:center;margin:0 auto 60px;max-width:760px;
+}
+.mech-name{
+  font-family:var(--font-display);
+  font-size:clamp(38px,7vw,80px);
+  color:var(--amber-strong);
+  line-height:1;
+  margin:18px 0 22px;
+}
+.mech-intro{font-size:17px;color:var(--fg-muted);line-height:1.7}
+.mech-intro strong{color:var(--fg)}
+
+/* ───────── DOBRA 5 — Caso real ───────── */
+.case-glow-wrap{position:relative}
+.case-glow-wrap::before{
+  content:"";position:absolute;
+  left:50%;top:-8%;
+  width:min(920px,140%);height:120%;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse 55% 60% at 50% 30%, var(--amber-glow-strong), var(--amber-glow) 45%, transparent 72%);
+  pointer-events:none;z-index:0;
+  filter:blur(2px);
+}
+.case-card{
+  border:1px solid var(--border);border-radius:18px;
+  background:var(--bg-elev);overflow:hidden;position:relative;z-index:1;
+  box-shadow:var(--shadow-lg), 0 0 90px -30px rgba(255,138,31,.35);
+}
+.case-card::before{
+  content:"";position:absolute;top:0;left:0;width:5px;height:100%;
+  background:linear-gradient(180deg,var(--forro),var(--swing));
+}
+.case-head{padding:38px 44px 28px;border-bottom:1px solid var(--border)}
+.case-num{font-family:var(--font-mono);color:var(--amber);font-size:12px;letter-spacing:2px;margin-bottom:14px}
+.case-title{font-size:clamp(24px,3.2vw,36px);line-height:1.15}
+.case-title .hl{color:var(--amber-strong);display:block}
+.case-body{padding:36px 44px 44px}
+.case-body p{font-size:16.5px;color:var(--fg-muted);line-height:1.75;margin-bottom:20px}
+.case-body p:last-child{margin-bottom:0}
+.case-body strong{color:var(--fg)}
+
+.case-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--amber-edge);border-bottom:1px solid var(--amber-edge);
+  position:relative;
+  background:
+    radial-gradient(ellipse 70% 130% at 50% 50%, var(--amber-glow-strong), transparent 70%),
+    var(--bg-elev-2);
+}
+.case-stat{padding:30px 30px;border-right:1px solid var(--border);text-align:left;position:relative}
+.case-stat:last-child{border-right:none}
+.case-stat .num{font-family:var(--font-display);font-size:clamp(28px,3.4vw,42px);color:var(--amber-strong);line-height:1;text-shadow:0 0 28px rgba(255,138,31,.45)}
+.case-stat .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--fg-faint);margin-top:10px;line-height:1.5}
+@media(max-width:760px){.case-stats{grid-template-columns:1fr}.case-stat{border-right:none;border-bottom:1px solid var(--border)}.case-stat:last-child{border-bottom:none}}
+
+.collide-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.collide-tag{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.3px;
+  padding:9px 16px;border-radius:100px;
+}
+.collide-tag.forro{border:1px solid var(--forro-edge);color:#ff9a8f;background:var(--forro-soft)}
+.collide-tag.swing{border:1px solid var(--swing-edge);color:#7fe0d2;background:var(--swing-soft)}
+.collide-x{font-family:var(--font-display);color:var(--fg-faint);font-size:16px}
+
+/* ───────── DOBRA 6 — Três camadas ───────── */
+.layers{display:flex;flex-direction:column;gap:0}
+.layer{display:grid;grid-template-columns:100px 1fr;gap:30px;padding:44px 0;border-top:1px solid var(--border)}
+.layer:last-child{border-bottom:1px solid var(--border)}
+.layer-sign{font-family:var(--font-display);font-size:15px;color:var(--fg-faint)}
+.layer-sign .n{display:block;font-size:52px;color:var(--border-strong);line-height:1;margin-top:4px;transition:color .25s ease}
+.layer-title{font-size:clamp(21px,2.6vw,29px);color:var(--fg);margin-bottom:14px;font-family:var(--font-body);font-weight:800}
+.layer-title .hl{color:var(--amber-strong)}
+.layer-desc{color:var(--fg-muted);font-size:16px;line-height:1.75}
+.layer{transition:background .25s ease}
+.layer:hover{background:var(--amber-soft)}
+.layer:hover .layer-sign .n{color:var(--amber-edge)}
+/* a camada central (§02) é a de leitura de comunidade — o ponto mais autoral do método — ganha leve destaque de escala para quebrar a repetição visual das três linhas idênticas */
+.layer:nth-child(2){padding:52px 0}
+.layer:nth-child(2) .layer-sign .n{color:var(--amber-deep)}
+@media(max-width:640px){.layer{grid-template-columns:1fr;gap:12px}.layer-sign .n{font-size:38px}.layer:nth-child(2){padding:44px 0}}
+
+.layers-note{
+  margin-top:48px;padding:28px 32px;
+  background:var(--amber-soft);border:1px solid var(--amber-edge);border-radius:14px;
+  font-size:15px;color:var(--fg);line-height:1.7;
+}
+.layers-note strong{color:var(--amber-strong)}
+
+/* ───────── DOBRA 7 — Por que funciona ───────── */
+.why-box{
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  margin:0 0 40px;padding:34px 38px;
+  background:var(--bg-elev);border:1px solid var(--border);border-radius:16px;
+}
+.why-box .state{font-size:clamp(16px,2vw,21px);font-family:var(--font-display)}
+.why-box .state.old{color:var(--fg-faint)}
+.why-box .state.new{color:var(--amber-strong)}
+.why-box .arrow{color:var(--amber);font-size:24px}
+.why-punch{font-size:18px;color:var(--fg);max-width:780px;line-height:1.75}
+.why-punch strong{color:var(--amber-strong)}
+
+/* ───────── DOBRA 8 — Para quem é ───────── */
+/* Grid levemente assimétrico: o card "para quem é" pesa mais que o "não é" — reforça foco editorial, sem virar template 50/50 */
+.for-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md)}
+.for-card{background:var(--bg-elev);padding:38px 40px;transition:background .2s var(--ease-out)}
+.for-card.yes{background:var(--bg-elev-2)}
+.for-card:hover{background:var(--bg-elev-3)}
+.for-card .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.for-card.yes .tag{color:var(--swing)}
+.for-card.no .tag{color:var(--danger)}
+.for-card ul{list-style:none;padding:0;margin:0}
+.for-card li{padding:12px 0 12px 26px;position:relative;font-size:15px;line-height:1.6;border-top:1px solid var(--border);color:var(--fg-muted);transition:color .15s ease,padding-left .15s ease}
+.for-card li:first-child{border-top:none}
+.for-card li:hover{padding-left:30px}
+.for-card.yes li:hover{color:var(--fg)}
+.for-card.no li:hover{color:var(--fg)}
+.for-card.yes li::before{content:"✓";position:absolute;left:0;color:var(--swing);font-weight:700}
+.for-card.no li::before{content:"✕";position:absolute;left:0;color:var(--danger);font-weight:700}
+@media(max-width:760px){.for-grid{grid-template-columns:1fr}}
+
+/* ───────── DOBRA 9 — Stack de valor ───────── */
+.stack-list{display:flex;flex-direction:column}
+.stack-item{display:grid;grid-template-columns:56px 1fr;gap:22px;padding:26px 24px;margin:0 -24px;border-top:1px solid var(--border);border-radius:10px;transition:background .18s var(--ease-out)}
+.stack-item:last-child{border-bottom:1px solid var(--border)}
+.stack-item:hover{background:var(--amber-soft)}
+.stack-num{font-family:var(--font-mono);color:var(--amber);font-size:14px;padding-top:3px}
+.stack-item h4{font-size:17px;color:var(--fg);margin-bottom:6px;font-family:var(--font-body);font-weight:700}
+.stack-item p{font-size:14.5px;color:var(--fg-muted);line-height:1.6}
+.stack-item.bonus h4::after{
+  content:"BÔNUS";margin-left:10px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:1px;
+  color:var(--swing);border:1px solid var(--swing-edge);background:var(--swing-soft);
+  padding:3px 8px;border-radius:100px;vertical-align:middle;
+}
+
+.price-card{
+  margin-top:56px;padding:48px 44px;text-align:center;
+  background:linear-gradient(135deg, var(--amber-soft), transparent), var(--bg-elev-2);
+  border:1px solid var(--amber-edge);border-radius:20px;
+  box-shadow:var(--shadow-lg);
+}
+.price-was{font-family:var(--font-mono);font-size:13px;color:var(--fg-faint);letter-spacing:1px;margin-bottom:10px}
+.price-tag{font-family:var(--font-display);font-size:clamp(48px,8vw,84px);color:var(--amber-strong);line-height:1;margin-bottom:8px}
+.price-tag .cents{font-size:.4em;vertical-align:top}
+.price-detail{font-size:14.5px;color:var(--fg-muted);margin-bottom:30px}
+
+/* ───────── DOBRA 10 — Transformação: barras sólidas alternadas forró/swing ───────── */
+.transform-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.transform-list li{
+  display:flex;gap:18px;align-items:center;
+  padding:22px 28px;border-radius:12px;
+  font-size:16.5px;font-weight:600;color:#fff;line-height:1.5;
+  box-shadow:var(--shadow-sm);
+  transition:transform .18s var(--ease-out), box-shadow .18s var(--ease-out);
+}
+.transform-list li:hover{transform:translateX(4px)}
+.transform-list li:nth-child(odd){
+  background:linear-gradient(120deg, var(--forro) 0%, #b8362c 100%);
+}
+.transform-list li:nth-child(odd):hover{box-shadow:0 14px 30px -12px rgba(224,72,60,.55)}
+.transform-list li:nth-child(even){
+  background:linear-gradient(120deg, var(--swing) 0%, #1f8378 100%);
+}
+.transform-list li:nth-child(even):hover{box-shadow:0 14px 30px -12px rgba(47,180,163,.55)}
+/* leve assimetria editorial: a barra central (3ª, o ponto-chave da lista) respira mais e puxa a margem */
+.transform-list li:nth-child(3){padding:26px 28px;margin-left:18px;max-width:calc(100% - 18px)}
+@media(max-width:640px){.transform-list li:nth-child(3){margin-left:0;max-width:100%}}
+.transform-list .ico{
+  flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:rgba(0,0,0,.22);
+  display:grid;place-items:center;
+  font-size:15px;font-weight:800;color:#fff;
+}
+
+/* ───────── DOBRA 11 — Honestidade ───────── */
+.honesty-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center}
+@media(max-width:860px){.honesty-wrap{grid-template-columns:1fr}}
+.honesty-photo-col{position:relative;max-width:340px}
+.honesty-photo-col::before{
+  content:"";position:absolute;
+  left:50%;top:6%;width:135%;height:100%;transform:translateX(-50%);
+  background:radial-gradient(ellipse 55% 55% at 50% 45%, rgba(224,72,60,.16), rgba(47,180,163,.10) 55%, transparent 75%);
+  pointer-events:none;z-index:0;filter:blur(6px);
+}
+.honesty-photo{
+  position:relative;z-index:1;border-radius:18px;overflow:hidden;
+  border:1px solid var(--border-strong);
+  aspect-ratio:4/5;max-width:340px;
+  box-shadow:var(--shadow-lg);
+  transform:rotate(1.2deg);
+  transition:transform .3s var(--ease-out);
+}
+.honesty-photo:hover{transform:rotate(0deg) scale(1.012)}
+.honesty-photo img{width:100%;height:100%;object-fit:cover}
+.honesty-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg, rgba(16,12,8,.55), transparent 45%)}
+.honesty-photo-tag{
+  position:absolute;left:18px;bottom:16px;z-index:2;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.3px;
+  color:var(--fg);text-transform:uppercase;
+}
+.honesty-photo-tag .name{display:block;font-family:var(--font-display);font-size:18px;color:var(--amber-strong);letter-spacing:0;margin-bottom:2px}
+.honesty-text p{font-size:16.5px;color:var(--fg-muted);line-height:1.8;margin-bottom:20px}
+.honesty-text p:last-child{margin-bottom:0}
+.honesty-text strong{color:var(--fg)}
+.honesty-text .hl{color:var(--amber-strong)}
+
+/* ───────── DOBRA 12 — Objeções (accordion) ───────── */
+.objections{display:flex;flex-direction:column;gap:14px}
+.objection{
+  border:1px solid var(--border);border-radius:14px;
+  background:var(--bg-elev);overflow:hidden;
+  transition:border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
+}
+.objection:hover{border-color:var(--border-strong)}
+.objection[open]{border-color:var(--amber-edge);box-shadow:var(--shadow-sm)}
+.objection summary{
+  list-style:none;cursor:pointer;
+  padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  font-size:16.5px;color:var(--fg);font-weight:700;
+  transition:background .15s ease;
+}
+.objection summary:hover{background:var(--amber-soft)}
+.objection summary:focus-visible{outline:2px solid var(--amber-strong);outline-offset:-2px}
+.objection summary::-webkit-details-marker{display:none}
+.objection summary .q-mark{
+  font-family:var(--font-mono);color:var(--amber);font-size:14px;flex-shrink:0;
+  width:26px;height:26px;border:1px solid var(--amber-edge);border-radius:50%;
+  display:grid;place-items:center;transition:transform .2s ease, background .2s ease;
+}
+.objection[open] summary .q-mark{transform:rotate(45deg);background:var(--amber-soft)}
+.objection-body{padding:0 28px 26px;color:var(--fg-muted);font-size:15.5px;line-height:1.7}
+.objection-body strong{color:var(--fg)}
+
+/* ───────── DOBRA 13 — Fechamento ───────── */
+.close-block{text-align:center;max-width:780px;margin:0 auto}
+.close-lead{font-size:clamp(19px,2.6vw,27px);color:var(--fg);line-height:1.6;margin-bottom:22px}
+.close-lead .hl{color:var(--amber-strong)}
+.close-sub{font-size:16px;color:var(--fg-muted);line-height:1.7;margin-bottom:44px}
+
+/* ───────── FAQ ───────── */
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-top:1px solid var(--border);padding:22px 0}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-q{font-size:16px;color:var(--fg);font-weight:700;margin-bottom:10px}
+.faq-a{font-size:15px;color:var(--fg-muted);line-height:1.7}
+
+/* ───────── CTA sticky mobile ───────── */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  background:rgba(16,12,8,.95);backdrop-filter:blur(14px);
+  border-top:1px solid var(--border-strong);
+  padding:14px 18px;
+  display:none;
+  align-items:center;justify-content:space-between;gap:14px;
+}
+.sticky-cta .price{font-family:var(--font-display);color:var(--amber-strong);font-size:20px}
+.sticky-cta .cta-btn{padding:14px 22px;font-size:14.5px}
+@media(max-width:760px){.sticky-cta{display:flex}body{padding-bottom:78px}}
+
+/* ───────── Footer ───────── */
+footer{padding:70px 0 50px}
+.footer-mark{
+  width:48px;height:48px;background:var(--amber);color:#100c08;
+  font-family:var(--font-display);font-size:24px;
+  border-radius:12px;display:grid;place-items:center;margin-bottom:32px;transform:rotate(-4deg);
+}
+.footer-closing{font-size:clamp(24px,3.6vw,38px);line-height:1.2;margin-bottom:20px}
+.footer-closing .hl{color:var(--amber-strong);display:block}
+.footer-meta{
+  font-family:var(--font-mono);font-size:11px;color:var(--fg-faint);letter-spacing:1px;
+  padding-top:24px;border-top:1px solid var(--border);margin-top:20px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+
+/* animações de entrada */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-in">
+    <div class="brand">
+      <div class="brand-mark">B</div>
+      <span>DA BOLHA AO BOOM</span>
+    </div>
+    <a href="#oferta" class="topbar-cta">Garantir por R$ 47</a>
+  </div>
+</div>
+
+<!-- ============ DOBRA 1 — ABERTURA / HEADLINE ============ -->
+<section class="hero sec-elev-1">
+  <div class="texture-collide"></div>
+  <div class="texture-diagonal"></div>
+  <div class="wrap hero-in">
+    <div>
+      <div class="hero-stamp reveal"><span class="led"></span> MECANISMO: PADRÃO REMAKE · CASO REAL DE 2015</div>
+
+      <h1 class="wordmark reveal">O remix que colocou dois universos musicais um na frente do outro levou meu canal a <span class="hl">mais de um milhão de inscritos.</span></h1>
+
+      <p class="hero-sub reveal">Não foi sorte. Foi uma escolha que qualquer criador de conteúdo musical pode aprender a fazer <strong>antes de gravar</strong>. Da Bolha ao Boom ensina o critério de três camadas por trás do único caso de viralização espontânea genuína que já vivi — cruzamento cultural, leitura de comunidade e timing de lançamento — para você parar de decidir seu próximo conteúdo no escuro.</p>
+
+      <a href="#oferta" class="cta-btn reveal">Quero aplicar o Padrão Remake no meu próximo vídeo <span class="arrow">─→</span></a>
+      <p class="cta-sub reveal">R$ 47,00 · acesso imediato · 60 a 90 minutos de conteúdo</p>
+    </div>
+
+    <div class="hero-photo-col reveal">
+      <div class="hero-badge">MAIS DE 1 MILHÃO DE INSCRITOS EM 2015</div>
+      <div class="hero-photo-frame">
+        <img src="wesley-perfil.png" alt="Wesley Henriques, criador do Padrão Remake e autor de Da Bolha ao Boom">
+        <div class="hero-photo-tag"><span class="name">Wesley Henriques</span>Criador do Padrão Remake</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 2 — IDENTIFICAÇÃO DA DOR ============ -->
+<section class="sec-elev-2">
+  <div class="wrap-narrow">
+    <div class="kicker">A cena que se repete toda semana</div>
+    <p class="pain-lead reveal">Seu último vídeo ficou bom. Você editou com cuidado, escolheu o corte certo, publicou no horário que todo mundo recomenda, usou a hashtag da vez. E mesmo assim, <span class="hl">nada.</span></p>
+    <p class="pain-lead reveal" style="margin-top:28px;font-weight:600;color:var(--fg-muted);font-size:clamp(17px,2vw,20px)">Não foi falta de qualidade técnica. Foi falta de critério antes de gravar. E ninguém te ensinou que esse critério existe.</p>
+  </div>
+</section>
+
+<!-- ============ DOBRA 3 — DIAGNÓSTICO DO PROBLEMA REAL ============ -->
+<section class="sec-elev-1">
+  <div class="texture-forro-swing"></div>
+  <div class="wrap-narrow" style="position:relative;z-index:1">
+    <div class="kicker">O diagnóstico real</div>
+    <h2 class="sec-title reveal">O mercado te ensinou a olhar para <span class="hl">o lugar errado.</span></h2>
+
+    <div class="diag-block reveal">
+      <p>Ele te empurra para mexer em variáveis de superfície: horário de postagem, hashtag do momento, tendência de áudio, velocidade de corte. E quando nada disso funciona, a conclusão fica sendo sempre a mesma — <strong>"foi sorte de quem viralizou, aqui não deu".</strong></p>
+      <p>Só que existe uma decisão anterior a tudo isso, que a maioria dos criadores de conteúdo musical de nicho nunca aprendeu a fazer de forma deliberada: <strong>qual cruzamento cultural fazer, para qual comunidade, e em que momento lançar.</strong> Essa decisão acontece antes da câmera ligar — e é ela que mais pesa no resultado.</p>
+    </div>
+
+    <div class="surface-tags reveal">
+      <span class="surface-tag">Melhor horário de postagem</span>
+      <span class="surface-tag">Hashtag do momento</span>
+      <span class="surface-tag">Tendência de áudio</span>
+      <span class="surface-tag">Velocidade de corte</span>
+      <span class="surface-tag">Editar de novo, torcer de novo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 4 — MECANISMO (VISÃO GERAL) ============ -->
+<section class="sec-elev-3">
+  <div class="texture-collide"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="mech-name-block">
+      <div class="kicker center">Existe um padrão por trás disso</div>
+      <p class="mech-intro reveal">Eu não inventei essa ideia numa mesa de reunião — eu vivi ela na prática, uma vez, de um jeito que mudou o rumo do meu canal. Esse padrão tem nome.</p>
+      <h2 class="mech-name reveal">PADRÃO REMAKE</h2>
+      <p class="mech-intro reveal">Não é uma fórmula mágica de viral garantido. É <strong>um critério de três camadas</strong> para decidir, antes de gravar, se o seu próximo remix ou cover tem alguma chance real de pertencer a alguém — em vez de ser só mais um vídeo lançado na torcida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 5 — O CASO REAL (PROVA CENTRAL) ============ -->
+<section id="caso" class="sec-elev-1">
+  <div class="wrap">
+    <div class="kicker">A prova central</div>
+    <h2 class="sec-title reveal">2015. Dois remixes. <span class="hl">Um milhão de inscritos.</span></h2>
+
+    <div class="case-glow-wrap">
+    <div class="case-card reveal" style="margin-top:44px">
+      <div class="case-head">
+        <div class="case-num">№ 01 · CASO DOCUMENTADO</div>
+        <h3 class="case-title">O dia em que dois universos<span class="hl">musicais colidiram de propósito.</span></h3>
+      </div>
+
+      <div class="case-stats">
+        <div class="case-stat"><div class="num">+1 MI</div><div class="lbl">Inscritos no canal,<br>chegando perto de 2 milhões</div></div>
+        <div class="case-stat"><div class="num">2,5 MI</div><div class="lbl">Seguidores no SoundCloud,<br>marca rara no Brasil na época</div></div>
+        <div class="case-stat"><div class="num">2</div><div class="lbl">Remixes que cruzaram<br>universos culturais opostos</div></div>
+      </div>
+
+      <div class="case-body">
+        <p>Em 2015, eu lancei dois remixes: <strong>"Slipknot em versão Forró"</strong> e <strong>"System of a Down versão Swinguera da Bahia".</strong></p>
+
+        <div class="collide-tags">
+          <span class="collide-tag forro">Metal internacional</span>
+          <span class="collide-x">×</span>
+          <span class="collide-tag forro">Forró nordestino</span>
+        </div>
+        <div class="collide-tags" style="margin-top:12px;margin-bottom:24px">
+          <span class="collide-tag swing">Metal internacional</span>
+          <span class="collide-x">×</span>
+          <span class="collide-tag swing">Swinguera baiana</span>
+        </div>
+
+        <p>Não foi a melhor mixagem que eu já fiz. Não foi o vídeo mais bem editado do meu canal. O que aconteceu foi outra coisa: eu cruzei dois universos musicais fortemente identificados com públicos e regiões diferentes. O site <strong>"Ah Negão"</strong> divulgou os dois remixes, e o resultado foi um canal que passou de mais de um milhão de inscritos — uma marca que, na época, só eu e o DJ RD tínhamos no Brasil.</p>
+        <p>Quem se identificava com o metal se divertiu com a irreverência. Quem se identificava com o forró e a swingueira se orgulhou de ver a própria cultura "vencer" dentro de uma referência internacional. <strong>Duas comunidades carregaram o mesmo conteúdo adiante, ao mesmo tempo, por motivos diferentes.</strong></p>
+        <p>Isso não é sorte solta — é um padrão que pode ser identificado, nomeado e repetido.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 6 — AS TRÊS CAMADAS ============ -->
+<section id="mecanismo" class="sec-elev-2">
+  <div class="wrap">
+    <div class="kicker">Como o Padrão Remake funciona</div>
+    <h2 class="sec-title reveal">Três camadas. Sempre nesta ordem. <span class="hl">Sempre antes de gravar.</span></h2>
+
+    <div class="layers" style="margin-top:20px">
+      <div class="layer reveal">
+        <div class="layer-sign">§ 01<span class="n">01</span></div>
+        <div>
+          <h3 class="layer-title">Cruzamento Cultural <span class="hl">— a escolha da colisão.</span></h3>
+          <p class="layer-desc">A escolha de quais dois universos musicais ou culturais colidir dentro de uma mesma peça de conteúdo. Não é escolher "o que está na moda" — é identificar duas identidades culturais fortes, com público reconhecível, cuja colisão gera surpresa e pertencimento ao mesmo tempo.</p>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-sign">§ 02<span class="n">02</span></div>
+        <div>
+          <h3 class="layer-title">Leitura de Comunidade <span class="hl">— saber quem vai carregar isso.</span></h3>
+          <p class="layer-desc">Depois de escolher o cruzamento, é preciso identificar com clareza qual comunidade específica vai se ver representada nele, e o que essa comunidade precisa sentir para compartilhar o conteúdo como se fosse dela — orgulho regional, humor, nostalgia, reconhecimento de identidade.</p>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-sign">§ 03<span class="n">03</span></div>
+        <div>
+          <h3 class="layer-title">Timing de Lançamento <span class="hl">— o momento é decisão, não detalhe.</span></h3>
+          <p class="layer-desc">A mesma peça de conteúdo tem chances de identificação muito diferentes dependendo de quando é publicada — datas regionais, calendário de nicho, ondas de nostalgia, eventos culturais em curso. O momento de publicação é parte da decisão criativa, não detalhe operacional de "melhor horário do dia".</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="layers-note reveal">
+      As três camadas são ensinadas em sequência, cada uma com o caso de 2015 dissecado como exemplo vivo, e cada uma termina em uma decisão prática que <strong>você aplica ao seu próprio próximo vídeo.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 7 — POR QUE FUNCIONA ============ -->
+<section class="sec-elev-1">
+  <div class="wrap-narrow">
+    <div class="kicker">Por que isso funciona</div>
+    <h2 class="sec-title reveal">Não é sobre técnica. <span class="hl">É sobre a decisão de antes.</span></h2>
+
+    <div class="why-box reveal">
+      <span class="state old">Edição, mixagem, qualidade de gravação</span>
+      <span class="arrow">✕</span>
+      <span class="state new">Qual cruzamento, para quem, e quando</span>
+    </div>
+
+    <p class="why-punch reveal">O Padrão Remake não é sobre técnica de produção — isso você já resolve em outro lugar. Ele é sobre a decisão que acontece antes de tudo isso. Essa é a variável que o mercado de growth genérico nunca te ensinou a olhar, porque ela não cabe em dica de horário nem em hashtag da semana. <strong>Quando você aplica o Padrão Remake, você para de apostar às cegas em qual ideia gravar e passa a ter um critério real para decidir antes de gastar tempo de produção.</strong></p>
+  </div>
+</section>
+
+<!-- ============ DOBRA 8 — PARA QUEM É / NÃO É ============ -->
+<section class="sec-elev-2">
+  <div class="wrap">
+    <div class="kicker">Antes de continuar</div>
+    <h2 class="sec-title reveal">Para quem é. <span class="hl">E para quem não é.</span></h2>
+
+    <div class="for-grid" style="margin-top:36px">
+      <div class="for-card yes reveal">
+        <div class="tag">Para quem é</div>
+        <ul>
+          <li>Criador de conteúdo musical de nicho que já sabe gravar e editar com qualidade, mas trava na hora de decidir o que fazer a seguir.</li>
+          <li>Quem já tentou "de tudo" nas variáveis de superfície e sente que está girando em falso.</li>
+          <li>Quem quer um critério repetível, não um palpite novo a cada vídeo.</li>
+        </ul>
+      </div>
+      <div class="for-card no reveal">
+        <div class="tag">Para quem não é</div>
+        <ul>
+          <li>Quem busca curso de técnica de produção, mixagem ou edição.</li>
+          <li>Quem quer fórmula garantida de viral — porque essa fórmula não existe, e este produto não finge que existe.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 9 — STACK DE VALOR / OFERTA ============ -->
+<section id="oferta" class="sec-elev-3">
+  <div class="texture-collide"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="kicker">O que você recebe</div>
+    <h2 class="sec-title reveal">Tudo o que está incluso, <span class="hl">por R$ 47,00.</span></h2>
+
+    <div class="stack-list" style="margin-top:36px">
+      <div class="stack-item reveal">
+        <span class="stack-num">01</span>
+        <div><h4>5 módulos em vídeo, 15 aulas curtas</h4><p>Consumo total entre 60 e 90 minutos, cada aula com entregável prático.</p></div>
+      </div>
+      <div class="stack-item reveal">
+        <span class="stack-num">02</span>
+        <div><h4>Ficha de Análise do Caso Real</h4><p>O caso de 2015 dissecado camada por camada.</p></div>
+      </div>
+      <div class="stack-item reveal">
+        <span class="stack-num">03</span>
+        <div><h4>Cartão do Critério de Três Perguntas</h4><p>Para avaliar qualquer ideia de cruzamento cultural futura.</p></div>
+      </div>
+      <div class="stack-item reveal">
+        <span class="stack-num">04</span>
+        <div><h4>Template de Lista de Cruzamentos Culturais</h4><p>Para organizar suas próprias ideias de conteúdo com critério, não por impulso.</p></div>
+      </div>
+      <div class="stack-item reveal">
+        <span class="stack-num">05</span>
+        <div><h4>Guia dos Quatro Gatilhos Emocionais</h4><p>Vocabulário concreto para nomear por que um conteúdo cultural gera compartilhamento.</p></div>
+      </div>
+      <div class="stack-item reveal">
+        <span class="stack-num">06</span>
+        <div><h4>Calendário de Gatilhos Temporais</h4><p>Janelas de tempo para os próximos 60 a 90 dias.</p></div>
+      </div>
+      <div class="stack-item reveal">
+        <span class="stack-num">07</span>
+        <div><h4>Checklist do Padrão Remake</h4><p>Resumo do método, vira ritual antes de cada novo vídeo.</p></div>
+      </div>
+      <div class="stack-item reveal">
+        <span class="stack-num">08</span>
+        <div><h4>Mini-Diagnóstico de Revisão Pós-Publicação</h4><p>Três perguntas para ajustar o método se o primeiro resultado não aparecer.</p></div>
+      </div>
+      <div class="stack-item bonus reveal">
+        <span class="stack-num">09</span>
+        <div><h4>Guia de Nomenclatura "X versão Y"</h4><p>Como nomear seu cruzamento cultural para que o próprio título já comunique a colisão.</p></div>
+      </div>
+      <div class="stack-item bonus reveal">
+        <span class="stack-num">10</span>
+        <div><h4>Perguntas Frequentes sobre o Caso de 2015</h4><p>Respostas diretas sobre o que era controlável, o que era sorte, e o que mudou desde então.</p></div>
+      </div>
+    </div>
+
+    <div class="price-card reveal">
+      <div class="price-was">ACESSO COMPLETO AO PADRÃO REMAKE</div>
+      <div class="price-tag">R$ 47<span class="cents">,00</span></div>
+      <p class="price-detail">Pagamento único · entrega imediata · sem mensalidade</p>
+      <a href="#" class="cta-btn">Quero aplicar o Padrão Remake no meu próximo vídeo <span class="arrow">─→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 10 — BULLETS DE TRANSFORMAÇÃO ============ -->
+<section class="sec-elev-1">
+  <div class="wrap-narrow">
+    <div class="kicker">O que muda depois</div>
+    <h2 class="sec-title reveal">Do impulso ao critério.</h2>
+
+    <ul class="transform-list" style="margin-top:28px">
+      <li class="reveal"><span class="ico">✓</span> Sai da paralisia de "não sei o que postar".</li>
+      <li class="reveal"><span class="ico">✓</span> Para de tratar cada vídeo como aposta cega.</li>
+      <li class="reveal"><span class="ico">✓</span> Entende a diferença entre controlável e fator externo.</li>
+      <li class="reveal"><span class="ico">✓</span> Aprende a ler o momento certo de publicar.</li>
+      <li class="reveal"><span class="ico">✓</span> Termina com um checklist reaplicável em todo vídeo futuro.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ DOBRA 11 — HONESTIDADE SOBRE O NOME ============ -->
+<section class="sec-elev-2">
+  <div class="texture-forro-swing"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="kicker">Sobre o nome do mecanismo</div>
+    <h2 class="sec-title reveal">Por que não se chama <span class="hl">"Método Ah Negão".</span></h2>
+
+    <div class="honesty-wrap" style="margin-top:40px">
+      <div class="honesty-photo-col reveal">
+        <div class="honesty-photo">
+          <img src="wesley-perfil.png" alt="Wesley Henriques, autor do caso real de 2015 por trás do Padrão Remake">
+          <div class="honesty-photo-tag"><span class="name">Wesley Henriques</span>2015 · antes do boom</div>
+        </div>
+      </div>
+      <div class="honesty-text reveal">
+        <p>Talvez você esteja se perguntando por que o critério se chama <strong>Padrão Remake</strong>, e não leva o nome do site que divulgou os remixes em 2015. É proposital.</p>
+        <p>O <strong>"Ah Negão"</strong> foi o veículo que divulgou os dois remixes na época — isso é fato, faz parte da história real. Mas o critério que este produto ensina não pertence ao site que divulgou o resultado. Ele pertence à <span class="hl">decisão que eu tomei antes disso.</span></p>
+        <p>É por isso que o mecanismo leva o nome da própria matéria-prima do trabalho — remix, cover, releitura cultural — e não o nome de quem só apareceu depois, no momento de divulgar.</p>
+        <p>Essa mesma honestidade se aplica ao restante da história: <strong>o alcance também dependeu de um fator fora do meu controle.</strong> Este produto não esconde isso. Ele separa com clareza o que era controlável do que não era.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 12 — OBJEÇÕES ============ -->
+<section class="sec-elev-1">
+  <div class="wrap-narrow">
+    <div class="kicker">Antes de você decidir</div>
+    <h2 class="sec-title reveal">As perguntas que você <span class="hl">provavelmente está se fazendo.</span></h2>
+
+    <div class="objections" style="margin-top:36px">
+      <details class="objection reveal">
+        <summary>Isso não é só sorte?<span class="q-mark">+</span></summary>
+        <div class="objection-body">É verdade que o site "Ah Negão" foi decisivo para o alcance — e este produto não esconde isso. Mas antes da divulgação existir, o cruzamento cultural certo já estava pronto.</div>
+      </details>
+      <details class="objection reveal">
+        <summary>Já tentei de tudo e nada mudou.<span class="q-mark">+</span></summary>
+        <div class="objection-body">Todas essas tentativas mexem em variáveis de superfície, nunca na decisão que realmente importa.</div>
+      </details>
+      <details class="objection reveal">
+        <summary>R$ 47,00 por um curso curto vale a pena?<span class="q-mark">+</span></summary>
+        <div class="objection-body">O valor é proporcional à entrega: um critério aplicável no seu próximo vídeo, não um curso de meses.</div>
+      </details>
+      <details class="objection reveal">
+        <summary>E se eu aplicar e mesmo assim não viralizar?<span class="q-mark">+</span></summary>
+        <div class="objection-body">Não promete viral garantido — nenhum produto sério pode prometer isso. Promete aumentar sua chance real de identificação.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOBRA 13 — FECHAMENTO E CTA FINAL ============ -->
+<section class="sec-elev-3">
+  <div class="texture-collide"></div>
+  <div class="wrap close-block" style="position:relative;z-index:1">
+    <div class="kicker center">A decisão é sua</div>
+    <p class="close-lead reveal">Você pode continuar publicando na torcida. Ou pode aprender o critério que esteve por trás do único caso de viralização espontânea genuína que eu já vivi.</p>
+    <p class="close-sub reveal">O Padrão Remake não garante que seu vídeo vai viralizar. Mas te dá o que eu não tive em 2015: <span class="hl" style="color:var(--fg)">um critério para escolher a combinação cultural certa, para a comunidade certa, no momento certo, antes de gravar.</span></p>
+    <a href="#oferta" class="cta-btn reveal">Quero aplicar o Padrão Remake no meu próximo vídeo <span class="arrow">─→</span></a>
+    <p class="cta-sub reveal">Garantir acesso por R$ 47,00</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="sec-elev-1">
+  <div class="wrap-narrow">
+    <div class="kicker">Perguntas frequentes</div>
+    <h2 class="sec-title reveal">FAQ</h2>
+
+    <div class="faq-list" style="margin-top:30px">
+      <div class="faq-item reveal">
+        <div class="faq-q">O curso ensina a editar ou produzir?</div>
+        <div class="faq-a">Não — é sobre decidir o quê, para quem e quando, antes de gravar.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Preciso ter experiência técnica?</div>
+        <div class="faq-a">Sim, o produto resolve escolha e distribuição, não técnica.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Funciona para qualquer estilo musical?</div>
+        <div class="faq-a">Sim, é critério de decisão cultural, não fórmula de gênero.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Quanto tempo leva?</div>
+        <div class="faq-a">60 a 90 minutos de vídeo, 15 aulas curtas.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Garante viralização?</div>
+        <div class="faq-a">Não, e qualquer produto que prometesse isso estaria mentindo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-mark">B</div>
+    <h2 class="footer-closing">O cruzamento certo é uma decisão.<span class="hl">O boom nunca foi.</span></h2>
+    <a href="#oferta" class="cta-btn">Quero aplicar o Padrão Remake no meu próximo vídeo <span class="arrow">─→</span></a>
+    <div class="footer-meta">
+      <span>DA BOLHA AO BOOM · WESLEY HENRIQUES</span>
+      <span>R$ 47,00 · ACESSO IMEDIATO</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <span class="price">R$ 47,00</span>
+  <a href="#oferta" class="cta-btn">Garantir acesso <span class="arrow">─→</span></a>
+</div>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+
+  function revealAll(){
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  if(!('IntersectionObserver' in window)){
+    revealAll();
+    return;
+  }
+
+  // Revela na hora qualquer elemento que já esteja visível na primeira tela,
+  // sem depender do observer disparar a tempo (evita flash de conteúdo invisível).
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  els.forEach(function(el){
+    var rect = el.getBoundingClientRect();
+    if(rect.top < vh && rect.bottom > 0){ el.classList.add('in'); }
+  });
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){
+    if(!el.classList.contains('in')){ obs.observe(el); }
+  });
+
+  // Rede de segurança: se por qualquer motivo o observer não disparar
+  // (navegador, extensão ou timing atípico), nada fica permanentemente invisível.
+  window.setTimeout(revealAll, 2500);
+})();
+</script>
+
+</body>
+</html>
