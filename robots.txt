@@ -1,5 +1,9 @@
+# Somente as páginas de produto devem ser indexadas.
+# A raiz em branco, páginas de teste e demais subpáginas ficam fora dos buscadores.
 User-agent: *
 Disallow: /
+Allow: /jarvis-carrossel-os/
 Allow: /da-bolha-ao-boom/
 
+Sitemap: https://wesleyhenriques.site/jarvis-carrossel-os/sitemap.xml
 Sitemap: https://wesleyhenriques.site/da-bolha-ao-boom/sitemap.xml
