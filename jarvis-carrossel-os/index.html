@@ -196,6 +196,16 @@ section{padding:96px 0;position:relative;scroll-margin-top:74px}
 .chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:6px 9px;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--muted)}
 .chip.on{background:rgba(249,115,22,.1);border-color:var(--primary);color:var(--primary)}
 .gen-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--grad);color:#fff;font-weight:700;font-size:13px;padding:11px;border-radius:10px;box-shadow:0 8px 22px rgba(249,115,22,.32)}
+.mock-ok{display:flex;align-items:center;gap:9px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.28);border-radius:11px;padding:11px 13px;margin-bottom:13px}
+.mock-ok .gdot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e;flex-shrink:0}
+.mock-ok b{font-size:12px;font-weight:800;color:#fff;display:block;line-height:1.3}
+.mock-ok span{font-size:10.5px;color:var(--muted)}
+.mock-lab{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--primary);margin:2px 0 8px}
+.mock-field{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:12px;color:#cbd5e1;margin-bottom:8px}
+.mock-photo{display:flex;align-items:center;gap:11px;background:var(--bg);border:1px solid var(--border);border-radius:11px;padding:11px 13px;margin-top:4px}
+.mock-av{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--primary),#7c2d12)}
+.mock-badge{display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#22c55e;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:20px;padding:2px 8px;margin-bottom:5px}
+.mock-photo-t{font-size:10.5px;line-height:1.4;color:var(--muted)}
 /* cartão flutuante de resultado */
 .float-card{position:absolute;z-index:3;background:var(--bg-2);border:1px solid var(--border-glow);border-radius:14px;
   padding:13px 16px;box-shadow:0 20px 50px rgba(0,0,0,.55);display:flex;align-items:center;gap:11px;
@@ -457,22 +467,20 @@ footer{padding:48px 0;border-top:1px solid var(--border);color:var(--dim);font-s
         <div class="frame-top"></div>
         <div class="frame-head"><span class="logo"><i></i><i></i><i></i></span><span class="frame-title shimmer">Jarvis Carrossel OS</span></div>
         <div class="frame-body">
-          <div class="tabs"><b class="on">Interface</b><b>Treinar</b><b>Assinatura</b></div>
-          <div class="seg"><span>Fiel</span><span>Suave</span><span class="on">Médio</span><span>Forte</span></div>
-          <div class="mini-slide">
-            <div class="mini-slabel">Slide 01</div>
-            <div class="mini-prompt">Empreendedora sorrindo em um café moderno, luz natural quente, notebook na mesa…</div>
+          <div class="tabs"><b>Interface</b><b class="on">Treinar</b><b>Assinatura</b></div>
+          <div class="mock-ok"><span class="gdot"></span><div><b>Jarvis treinado</b><span>Foto e voz salvas na conta</span></div></div>
+          <div class="mock-lab">Quem você é</div>
+          <div class="mock-field">Wesley Henriques</div>
+          <div class="mock-field">@wesleyhenriques.oficial</div>
+          <div class="mock-photo">
+            <span class="mock-av"></span>
+            <div><span class="mock-badge">● Na nuvem</span><div class="mock-photo-t">Sua foto trava o personagem em toda imagem gerada.</div></div>
           </div>
-          <div class="chips">
-            <span class="chip on">Perfil ✕</span>
-            <span class="chip">+ Referência</span>
-          </div>
-          <div class="gen-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg> Gerar imagem</div>
         </div>
       </div>
       <div class="float-card float-a">
         <div class="float-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <div><div class="ft">Aplicado ao slide</div><div class="fs">no seu design, pronto</div></div>
+        <div><div class="ft">Voz aprendida</div><div class="fs">escreve como você</div></div>
       </div>
       <div class="float-card float-b">
         <div class="float-ico"><span class="dot" style="animation:none"></span></div>
