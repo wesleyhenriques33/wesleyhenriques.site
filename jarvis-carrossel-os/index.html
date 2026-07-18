@@ -24,13 +24,37 @@
 <meta name="twitter:title" content="Jarvis Carrossel OS — Carrosséis inteiros no Figma, com IA">
 <meta name="twitter:description" content="Texto em lote, imagens em massa e geração de arte com IA, sem sair do Figma.">
 <meta name="twitter:image" content="https://wesleyhenriques.site/jarvis-carrossel-os/og-image.png">
-<meta name="author" content="Wesley Henriques">
+<meta name="author" content="Wesley Henriques da Silva">
 <meta name="theme-color" content="#050505">
 <meta name="format-detection" content="telephone=no">
+
+<!-- Google Consent Mode v2 — padrão NEGADO até o consentimento do usuário (LGPD).
+     Roda ANTES de qualquer tag. GTM + GA4 + Meta Pixel entram na próxima etapa e
+     respeitam este padrão; o banner de cookies faz o 'update' após a escolha. -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted','wait_for_update':500});
+</script>
+<!-- Verificações de propriedade (preencher quando tiver os códigos):
+     <meta name="google-site-verification" content="COLE_AQUI"> (Search Console)
+     <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> (AdSense)
+     <meta name="facebook-domain-verification" content="COLE_AQUI"> (Meta) -->
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://wesleyhenriques.site/#org",
+      "name": "Jarvis Carrossel OS",
+      "legalName": "53.517.738 WESLEY HENRIQUES DA SILVA",
+      "taxID": "53.517.738/0001-97",
+      "url": "https://wesleyhenriques.site/jarvis-carrossel-os/",
+      "logo": "https://wesleyhenriques.site/jarvis-carrossel-os/favicon.png",
+      "email": "homestudio7rec@gmail.com",
+      "founder": { "@type": "Person", "name": "Wesley Henriques da Silva" }
+    },
     {
       "@type": "SoftwareApplication",
       "name": "Jarvis Carrossel OS",
@@ -39,7 +63,8 @@
       "url": "https://wesleyhenriques.site/jarvis-carrossel-os/",
       "image": "https://wesleyhenriques.site/jarvis-carrossel-os/og-image.png",
       "description": "Plugin de Figma que popula textos em lote, insere imagens em massa e gera arte com IA card a card — mantendo o seu personagem sempre igual.",
-      "author": { "@type": "Person", "name": "Wesley Henriques" },
+      "author": { "@type": "Person", "name": "Wesley Henriques da Silva" },
+      "publisher": { "@id": "https://wesleyhenriques.site/#org" },
       "offers": [
         { "@type": "Offer", "name": "Plano Mensal", "price": "19.90", "priceCurrency": "BRL", "url": "https://pay.kiwify.com.br/oeBHMcg" },
         { "@type": "Offer", "name": "Plano Anual", "price": "197.00", "priceCurrency": "BRL", "url": "https://pay.kiwify.com.br/XJgFs1N" }
@@ -829,6 +854,7 @@ footer{padding:48px 0;border-top:1px solid var(--border);color:var(--dim);font-s
     <div class="foot-legal">
       <a href="privacidade/">Política de Privacidade</a>
       <a href="termos/">Termos de Uso</a>
+      <a href="#" onclick="openCookiePrefs();return false;">Preferências de cookies</a>
       <a href="mailto:homestudio7rec@gmail.com">Contato</a>
     </div>
   </div>
@@ -839,6 +865,119 @@ footer{padding:48px 0;border-top:1px solid var(--border);color:var(--dim);font-s
   <div class="sp"><b>R$ 19,90</b>/mês · ou anual</div>
   <a href="#planos" class="btn btn-primary" style="width:auto;padding:12px 22px;font-size:15px">Assinar</a>
 </div>
+
+<!-- ============ COOKIES (LGPD + Consent Mode v2) ============ -->
+<style>
+.ck-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:200;max-width:940px;margin:0 auto;background:rgba(14,14,16,.97);backdrop-filter:blur(14px);border:1px solid var(--border-glow);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.55);padding:18px 20px}
+.ck-banner[hidden],.ck-modal[hidden]{display:none}
+.ck-banner-in{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.ck-txt{flex:1;min-width:250px}
+.ck-txt strong{display:block;font-size:15px;color:#fff;margin-bottom:4px}
+.ck-txt p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+.ck-txt a{color:var(--accent)}
+.ck-actions{display:flex;gap:10px;flex-wrap:wrap}
+.ck-btn{font:inherit;font-size:13.5px;font-weight:700;padding:11px 18px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:.15s;white-space:nowrap}
+.ck-primary{background:var(--grad);color:#fff;box-shadow:0 6px 18px rgba(249,115,22,.28)}
+.ck-primary:hover{filter:brightness(1.06)}
+.ck-ghost{background:rgba(255,255,255,.04);color:#E5E7EB;border-color:var(--border)}
+.ck-ghost:hover{background:rgba(255,255,255,.09)}
+.ck-modal{position:fixed;inset:0;z-index:210;display:flex;align-items:center;justify-content:center;padding:20px}
+.ck-modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.66);backdrop-filter:blur(3px)}
+.ck-card{position:relative;width:100%;max-width:520px;max-height:88vh;overflow:auto;background:var(--bg-2);border:1px solid var(--border);border-radius:18px;padding:26px}
+.ck-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.ck-head h2{font-size:20px;font-weight:800;color:#fff}
+.ck-x{background:none;border:none;color:var(--muted);font-size:17px;cursor:pointer;padding:4px 8px;border-radius:8px;line-height:1}
+.ck-x:hover{color:#fff;background:rgba(255,255,255,.06)}
+.ck-lede{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:18px}
+.ck-cat{border:1px solid var(--border);border-radius:12px;padding:15px 16px;margin-bottom:12px;background:rgba(255,255,255,.015)}
+.ck-cat-h{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:7px}
+.ck-cat-h b{font-size:14px;color:#fff;display:block}
+.ck-cat-h small{font-size:11px;color:var(--muted)}
+.ck-cat p{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0}
+.ck-badge{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#22c55e;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:20px;padding:4px 9px;white-space:nowrap}
+.ck-sw{position:relative;display:inline-block;width:44px;height:24px;flex-shrink:0}
+.ck-sw input{opacity:0;width:0;height:0}
+.ck-sl{position:absolute;inset:0;background:#2a2a30;border-radius:24px;transition:.2s;cursor:pointer}
+.ck-sl::before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.ck-sw input:checked+.ck-sl{background:var(--grad)}
+.ck-sw input:checked+.ck-sl::before{transform:translateX(20px)}
+.ck-foot{display:flex;gap:12px;margin-top:8px}
+.ck-foot .ck-btn{flex:1}
+@media(max-width:560px){.ck-actions{width:100%}.ck-actions .ck-btn{flex:1;text-align:center}}
+</style>
+
+<div id="ck-banner" class="ck-banner" role="dialog" aria-label="Aviso de cookies" hidden>
+  <div class="ck-banner-in">
+    <div class="ck-txt">
+      <strong>Este site usa cookies</strong>
+      <p>Usamos cookies essenciais para o site funcionar e, com o seu consentimento, cookies de análise e marketing para melhorar a experiência e medir campanhas. Detalhes na <a href="privacidade/">Política de Privacidade</a>.</p>
+    </div>
+    <div class="ck-actions">
+      <button type="button" class="ck-btn ck-ghost" id="ck-reject">Rejeitar</button>
+      <button type="button" class="ck-btn ck-ghost" id="ck-customize">Personalizar</button>
+      <button type="button" class="ck-btn ck-primary" id="ck-accept">Aceitar tudo</button>
+    </div>
+  </div>
+</div>
+
+<div id="ck-modal" class="ck-modal" role="dialog" aria-modal="true" aria-labelledby="ck-modal-title" hidden>
+  <div class="ck-modal-bg" data-ck-close></div>
+  <div class="ck-card">
+    <div class="ck-head">
+      <h2 id="ck-modal-title">Preferências de cookies</h2>
+      <button type="button" class="ck-x" data-ck-close aria-label="Fechar">✕</button>
+    </div>
+    <p class="ck-lede">Escolha o que autorizar. Os cookies essenciais ficam sempre ativos porque o site não funciona sem eles. As demais categorias começam desligadas.</p>
+    <div class="ck-cat">
+      <div class="ck-cat-h"><span><b>Necessários</b><small>Segurança e preferências</small></span><span class="ck-badge">Sempre ativo</span></div>
+      <p>Fazem o site funcionar. Não é possível desativar.</p>
+    </div>
+    <div class="ck-cat">
+      <div class="ck-cat-h"><span><b>Análise &amp; desempenho</b><small>Google Analytics (GA4)</small></span><label class="ck-sw"><input type="checkbox" id="ck-analytics"><span class="ck-sl"></span></label></div>
+      <p>Entendem como o site é usado, de forma agregada, para melhorá-lo.</p>
+    </div>
+    <div class="ck-cat">
+      <div class="ck-cat-h"><span><b>Marketing</b><small>Meta Pixel e mensuração de anúncios</small></span><label class="ck-sw"><input type="checkbox" id="ck-marketing"><span class="ck-sl"></span></label></div>
+      <p>Medem e otimizam campanhas e ajudam a mostrar anúncios mais relevantes.</p>
+    </div>
+    <div class="ck-foot">
+      <button type="button" class="ck-btn ck-ghost" id="ck-reject2">Rejeitar tudo</button>
+      <button type="button" class="ck-btn ck-primary" id="ck-save">Salvar preferências</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='jarvis_cookie_consent_v1';
+  var banner=document.getElementById('ck-banner'), modal=document.getElementById('ck-modal');
+  function push(c){
+    if(typeof gtag==='function'){
+      gtag('consent','update',{
+        'analytics_storage': c.analytics?'granted':'denied',
+        'ad_storage': c.marketing?'granted':'denied',
+        'ad_user_data': c.marketing?'granted':'denied',
+        'ad_personalization': c.marketing?'granted':'denied'
+      });
+    }
+    (window.dataLayer=window.dataLayer||[]).push({event:'cookie_consent_update',cookie_analytics:!!c.analytics,cookie_marketing:!!c.marketing});
+  }
+  function save(c){ c.ts=Date.now(); c.v=1; try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){} push(c); }
+  function read(){ try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;} }
+  function openModal(){ var s=read()||{}; document.getElementById('ck-analytics').checked=!!s.analytics; document.getElementById('ck-marketing').checked=!!s.marketing; modal.hidden=false; }
+  function closeModal(){ modal.hidden=true; }
+  document.getElementById('ck-accept').onclick=function(){ save({analytics:true,marketing:true}); banner.hidden=true; closeModal(); };
+  document.getElementById('ck-reject').onclick=function(){ save({analytics:false,marketing:false}); banner.hidden=true; };
+  document.getElementById('ck-reject2').onclick=function(){ save({analytics:false,marketing:false}); banner.hidden=true; closeModal(); };
+  document.getElementById('ck-customize').onclick=openModal;
+  document.getElementById('ck-save').onclick=function(){ save({analytics:document.getElementById('ck-analytics').checked, marketing:document.getElementById('ck-marketing').checked}); banner.hidden=true; closeModal(); };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-ck-close]'),function(el){ el.onclick=closeModal; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) closeModal(); });
+  window.openCookiePrefs=function(){ openModal(); };
+  var stored=read();
+  if(stored){ push(stored); } else { banner.hidden=false; }
+})();
+</script>
 
 <script>
 (function(){
